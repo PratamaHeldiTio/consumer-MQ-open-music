@@ -8,7 +8,7 @@ class PlaylistsService {
   async getSongsOnPlaylist(playlistId) {
     const query = {
       text: `
-      SELECT * FROM songs
+      SELECT title, year, performer, genre, duration FROM songs
       LEFT JOIN playlistsongs ON playlistsongs.song_id = songs.id
       WHERE playlistsongs.playlist_id = $1`,
       values: [playlistId],
